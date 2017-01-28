@@ -2,13 +2,13 @@
 
 if [[ -z $(git status -s) ]] ; then
    echo "Source is clean, trying to get release tag when presented"
-   RELEASE_VERSION=$(git tag -l --contains HEAD | grep "^v" | sed 's/^v\(.*\)$/\1/')
    export GIT_DIRTY="false"
 else
    echo "Source tree is dirty, technical release version will be used"
    export GIT_DIRTY="true"
 fi
 
+RELEASE_VERSION=$(git tag -l --contains HEAD | grep "^v" | sed 's/^v\(.*\)$/\1/')
 BASE_VERSION=$(git describe --abbrev=0 --tags --match "v[0-9]*" | sed 's/^v\(.*\)$/\1/')
 echo "Base version from git: $BASE_VERSION"
 BASE_VERSION=${BASE_VERSION:-"0.0.1"}
