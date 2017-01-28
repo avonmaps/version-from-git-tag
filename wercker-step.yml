@@ -1,5 +1,5 @@
 name: version-from-git-tag
-version: 1.0.1
+version: 1.0.2
 description: Get version from Git tags. When the current commit have tags prefixed with the 'v' prefix. When the commit have no defined tags search the last defined tag and adding timestamp, branch, build number. 
 keywords:
   - git
