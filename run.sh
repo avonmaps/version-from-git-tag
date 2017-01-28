@@ -4,7 +4,6 @@ if [[ -z $(git status -s) ]] ; then
    echo "Source is clean, trying to get release tag when presented"
    RELEASE_VERSION=$(git tag -l --contains HEAD | grep "^v" | sed 's/^v\(.*\)$/\1/')
 else
-   if [[ -z $(git status -s) ]] ; then
    echo "Source tree is dirty, technical release version will be used"
 fi
 
